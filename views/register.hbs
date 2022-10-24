@@ -1,0 +1,182 @@
+<section class="background-radial-gradient overflow-hidden">
+
+  <div class="container px-4 py-5 px-md-5 text-top text-lg-start my-5">
+    <div class="row gx-lg-5 align-items-top mb-5">
+      <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+        <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
+          Registration<br />
+          <span style="color: hsl(218, 81%, 75%)">Page</span>
+        </h1>
+        <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+          New User? Register to get full access to the website.
+        </p>
+      </div>
+
+      <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+        <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+        <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+
+        <div class="card bg-dark text-light">
+          <div class="m-0 pb-0 card-body px-4 py-5 px-md-5">
+
+            <form class="mb-0" action="/register" method="post">
+              {{#if NullError}}
+              <p class="mt-2 mb-1 text-danger fw-bold">{{NullError}}</p>
+              {{/if}}
+
+              {{#if Errors.nameError}}
+              <div><label class="mt-2 text-danger fw-bold">{{Errors.nameError}}</label></div>
+              {{/if}}
+
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text"  class="form-control" name="f_name" {{#if RegData.First_name}}
+                      value="{{RegData.First_name}}" {{/if}} />
+                    <label class="form-label" >First name</label>
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <input type="text"  class="form-control" name="l_name" id="l_name" {{#if
+                      RegData.Last_name}} value="{{RegData.Last_name}}" {{/if}} />
+                    <label class="form-label" >Last name</label>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-outline mb-4">
+                {{#if Errors.emailError}}
+                <div><label  class="mt-2 text-danger fw-bold">{{Errors.emailError}}</label></div>
+                {{/if}}
+                <input type="email" class="form-control" name="email_r" {{#if RegData.Email}} value="{{RegData.Email}}"
+                  {{/if}} />
+                <label class="form-label" >Email address</label>
+              </div>
+
+
+              <div class="form-outline mb-4">
+                {{#if Errors.pwError}}
+                <div><label class="mt-2 text-danger fw-bold">{{Errors.pwError}}</label></div>
+                {{/if}}
+                <input type="password"  class="form-control" name="pw_r" {{#if RegData.Password}}
+                  value="{{RegData.Password}}" {{/if}} />
+                <label class="form-label" >Password</label>
+              </div>
+
+
+              <div class="mb-4 pb-2">
+                <div class="form-outline form-white">
+                  {{#if Errors.u_nameError}}
+                  <div><label class="mt-2 text-danger fw-bold">{{Errors.u_nameError}}</label></div>
+                  {{/if}}
+
+                  <input type="text" class="form-control form-control-lg" name="uname_r" {{#if RegData.username}}
+                    value="{{RegData.username}}" {{/if}} />
+                  <label class="form-label">User Name</label>
+                </div>
+              </div>
+
+              <div class="mb-4 pb-2">
+                <div class="form-outline form-white">
+                  {{#if Errors.saError}}
+                  <div><label class="mt-2 text-danger fw-bold">{{Errors.saError}}</label></div>
+                  {{/if}}
+                  <input type="text"  class="form-control form-control-lg" name="s_address" {{#if
+                    RegData.S_address}} value="{{RegData.S_address}}" {{/if}} />
+                  <label class="form-label" >Street Address</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5 mb-4 pb-2">
+
+                  <div class="form-outline form-white">
+                    {{#if Errors.cityError}}
+                  <div><label class="mt-2 text-danger fw-bold">{{Errors.cityError}}</label></div>
+                  {{/if}}
+                    <input type="text"  class="form-control form-control-lg" name="city" {{#if
+                    RegData.City}} value="{{RegData.City}}" {{/if}}  />
+                    <label class="form-label">city</label>
+                  </div>
+
+                </div>
+                <div class="col-md-7 mb-4 pb-2">
+                  {{#if Errors.zipError}}
+                  <div><label class="mt-2 text-danger fw-bold"> {{Errors.zipError}}</label></div>
+                  {{/if}}
+                  <div class="form-outline form-white">
+                    <input type="text"  class="form-control form-control-lg" name="zip" {{#if
+                      RegData.Zip}} value="{{RegData.Zip}}" {{/if}} />
+                    <label class="form-label" >Zip Code</label>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="mb-4 pb-2">
+                <div class="form-outline form-white">
+                  <input type="text" class="form-control form-control-lg" name="nation" {{#if RegData.Nation}}
+                    value="{{RegData.Nation}}" {{/if}} />
+                  <label class="form-label">Country</label>
+                  {{#if Errors.natError}}
+                  <div><label class="mt-2 text-danger fw-bold">{{Errors.natError}}</label></div>
+                  {{/if}}
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-5 mb-4 pb-2">
+
+                  <div class="form-outline form-white">
+                    <input type="text" class="form-control form-control-lg" name="c_code" {{#if RegData.C_code}}
+                      value="{{RegData.C_code}}" {{/if}} />
+                    <label class="form-label" >Country Code</label>
+                    {{#if Errors.ccError}}
+                    <div><label class="mt-2 text-danger fw-bold">{{Errors.ccError}}</label></div>
+                    {{/if}}
+                  </div>
+
+                </div>
+                <div class="col-md-7 mb-4 pb-2">
+
+                  <div class="form-outline form-white">
+
+                    <input type="text" class="form-control form-control-lg" name="phNo_r" {{#if RegData.Ph_no}}
+                      value="{{RegData.Ph_no}}" {{/if}} />
+                    <label class="form-label">Phone Number</label>
+                    {{#if Errors.phoneError}}
+                    <div><label  class="mt-2 text-danger fw-bold">{{Errors.phoneError}}</label></div>
+                    {{/if}}
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="form-check d-flex justify-content-start mb-0 pb-3">
+                <input class="form-check-input me-3" type="checkbox" value="" id="form2Example3c" />
+                <label class="form-check-label text-white" >
+                  <a href="#!" class="text-light"><u> I do accept the Terms and Conditions of the
+                      site.</u></a>
+                </label>
+              </div>
+
+              <div class="d-flex flex-row justify-content-center">
+                <button type="submit" class="mb-2 btn btn-primary btn-block ">
+                  Sign up
+                </button>
+              </div>
+
+          </div>
+          <div class="d-flex flex-row justify-content-center">
+            <p class="mb-2">Already have an account? <a href="\login" class=" text-white-50 fw-bold">Login</a>
+            </p>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

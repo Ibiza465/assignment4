@@ -1,0 +1,2 @@
+cyclic link: https://ill-ruby-crow-boot.cyclic.app
+github link: https://github.com/ibiza001/as3

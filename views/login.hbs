@@ -1,0 +1,54 @@
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card bg-dark text-white" style="border-radius: 1rem;">
+                    <div class="card-body p-5 text-center">
+                <form action="/login" class="form text-center" style="font-size: 1em;"  method="POST">
+
+                        <div class="mb-md-2 mt-md-4 pb-5">
+
+                            <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+
+                            {{#if ErrorMsg}}
+                            <p class=" fw-bold">{{ErrorMsg}}</p>
+                            {{/if}}
+
+                            <div class="form-outline form-white mb-4">
+                                <input type="text" id="Un" class="form-control form-control-lg" name="name_l" {{#if
+                                    UserName}} value="{{UserName}}" {{/if}} />
+                                <label class="form-label" for="Un">User Name</label>
+
+                                {{#if UserErrorMsg}}
+                                <div><label for="name_l" class="mt-2 fw-bold">{{UserErrorMsg}}</label></div>
+                                {{/if}}
+                            </div>
+
+                            <div class="form-outline form-white mb-4">
+                                <input type="password" id="typePasswordX" class="form-control form-control-lg" name="pwd_l"  {{#if password}} value="{{password}}"{{/if}} />
+                                <label class="form-label" for="typePasswordX">Password</label>
+                               {{#if PwdErrorMsg}}
+                            <div><label for="pwd_l" class="mt-2 my-color fw-bold">{{PwdErrorMsg}}</label></div>
+                            
+                            {{/if}}
+
+                            </div>
+
+                            <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p>
+
+                            <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
+                        </div>
+                        </form>
+
+                        <div>
+                            <p class="mb-0">Don't have an account? <a href="\register"
+                                    class="text-white-50 fw-bold">Sign Up</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
