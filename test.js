@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'hbs');
 
 const mongoose = require('mongoose');
-const register = mongoose.createConnection("mongodb+srv://shankarthapa:Mongodb123@senecaweb.azk37kn.mongodb.net/web322_week8?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true });
+const register = mongoose.createConnection("mongodb+srv://shankarthapa:Mongodb123@senecaweb.azk37kn.mongodb.net/web322_week8?retryWrites=true&w=majority");
 
 const registerSchema = new mongoose.Schema({
     "First_name": String,
@@ -188,7 +188,7 @@ app.post("/login", async function (req, res) {
     if (username && password) {
 
         if (alph_check(username)) {
-            var userErrorMsg = "Your UserName can't have special characters or spaces!";
+            var userErrorMsg = "Your Username can't have special characters or spaces!";
             res.render('login', { UserErrorMsg: userErrorMsg, UserName: username, Password: password });
         }
         else {
@@ -196,9 +196,9 @@ app.post("/login", async function (req, res) {
             if (logdata) {
                 if (Bcrypt.compareSync(password, logdata.password)) {
                     if (logdata.admin === true) {
-                        res.render('admin_dashboard', { UserName: username, Name: (logdata.First_name + " " + logdata.Last_name) })
+                        res.render('admin_dashboard', { UserName: username, Name: (logdata.First_name + " " + logdata.Last_name), email: logdata.Email })
                     } else {
-                        res.render('dashboard', { UserName: username, Name: (logdata.First_name + " " + logdata.Last_name) });
+                        res.render('dashboard', { UserName: username, Name: (logdata.First_name + " " + logdata.Last_name), email: logdata.Email });
                     }
                 }
             }
@@ -399,7 +399,7 @@ app.post("/register", async (req, res) =>{
                 console.log(e);
             } else {
                 console.log("User Registered:\n\t" + data);
-                res.render('dashboard', { UserName: username, Name: (data.First_name + " " + data.Last_name) });
+                res.render('dashboard', { UserName: username, Name: (data.First_name + " " + data.Last_name), email: data.Email });
             }
         })
     }
